@@ -1,6 +1,7 @@
 class Meeting < ApplicationRecord
   belongs_to :book
   has_one :record
+  belongs_to :user
   validates :start_date, :end_date, presence: true
   default_scope -> { order(:start_date) }
 

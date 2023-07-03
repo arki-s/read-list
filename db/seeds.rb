@@ -20,7 +20,7 @@ date = Date.today
 
 10.times do
  book = Book.create!(title: Faker::Book.title, author: Faker::Book.author, user_id:user.id)
- meeting = Meeting.create!(start_date: (date - rand(5)), end_date: (date + rand(5)), complete: false, book_id: book.id)
+ meeting = Meeting.create!(start_date: (date - rand(5)), end_date: (date + rand(5)), complete: false, book_id: book.id, user_id: user.id)
  Record.create!(book_id: book.id, meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
 end
 
