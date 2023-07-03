@@ -1,0 +1,14 @@
+<% if @book.user_id == current_user.id %>
+  <h1><%= @book.title %></h1>
+  <h2>By <%= @book.author %></h2>
+  <% @book.meetings.each do |meeting|%>
+    <% if meeting.complete == true %>
+      <p>Start_date : <%= meeting.start_date %></p>
+      <p>End_date : <%= meeting.end_date %></p>
+      <p>Rating : <%= meeting.record.rating %></p>
+      <p>Review : <%= meeting.record.review %></p>
+    <% end %>
+  <% end %>
+<% else %>
+  <h1>You don't have access.</h1>
+<% end %>

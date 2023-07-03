@@ -1,0 +1,9 @@
+<h1>List</h1>
+<% @not_completes.each do |notcomp| %>
+  <% book = Book.find(notcomp.id) %>
+  <p><%= book.title %> By<%= book.author %></p>
+  <% notcomp.meetings.each do |meeting|%>
+    <p>Start date : <%= meeting.start_date%></p>
+    <p>Scheduled end date : <%= meeting.end_date%></p>
+  <% end %>
+<% end %>

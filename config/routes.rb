@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :meetings, only: [:index, :edit, :update, :destroy]
   resources :records, only: [:destroy]
 
+  get 'list', to: 'books#list', as: 'list'
+
 end
