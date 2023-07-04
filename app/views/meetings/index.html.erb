@@ -3,7 +3,9 @@
     <%= date %>
     <% meetings.each do |meeting| %>
       <div class="meeting">
-        <small><%= meeting.time unless meeting.multi_days? %></small>
+        <% book = Book.find(meeting.book_id)%>
+        <p><%= book.title %></p>
+        <%# <small><%= meeting.time unless meeting.multi_days? %>
       </div>
     <% end %>
   <% end %>
