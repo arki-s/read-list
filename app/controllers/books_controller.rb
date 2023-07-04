@@ -6,7 +6,8 @@ class BooksController < ApplicationController
 
   def list
     @books = current_user.books
-    @not_completes = @books.each { |book| book.meetings.select { |meeting| meeting.complete == false } }
+    @not_completes = []
+    @books.each { |book| book.meetings.each { |meeting| @not_completes << meeting if meeting.complete == false } }
   end
 
   def index

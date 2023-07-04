@@ -3,8 +3,8 @@
   <h2>By <%= @book.author %></h2>
   <% @book.meetings.each do |meeting|%>
     <% if meeting.complete == true %>
-      <p>Start_date : <%= meeting.start_date %></p>
-      <p>End_date : <%= meeting.end_date %></p>
+      <p>Start_date : <%= meeting.start_time %></p>
+      <p>End_date : <%= meeting.end_time %></p>
       <p>Rating : <%= meeting.record.rating %></p>
       <p>Review : <%= meeting.record.review %></p>
     <% end %>

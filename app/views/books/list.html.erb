@@ -1,9 +1,12 @@
-<h1>List</h1>
-<% @not_completes.each do |notcomp| %>
-  <% book = Book.find(notcomp.id) %>
-  <p><%= book.title %> By<%= book.author %></p>
-  <% notcomp.meetings.each do |meeting|%>
-    <p>Start date : <%= meeting.start_time%></p>
-    <p>Scheduled end date : <%= meeting.end_time%></p>
+<h1>In Progress List</h1>
+<% if @not_completes.count >= 1 %>
+  <% @not_completes.each do |notcomp| %>
+    <% book = Book.find(notcomp.book_id) %>
+    <p><%= book.title %> By <%= book.author %></p>
+    <p>Start date : <%= notcomp.start_time %></p>
+    <p>Scheduled end date : <%= notcomp.end_time %></p>
+    <%= link_to "", edit_meeting_path(notcomp.id), class:"fa-solid fa-pen p-2",style:"color:#dc3545;" %>
   <% end %>
+<% else %>
+  <h2>There are no in progress.</h2>
 <% end %>

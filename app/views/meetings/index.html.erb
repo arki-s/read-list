@@ -5,7 +5,6 @@
       <div class="meeting">
         <% book = Book.find(meeting.book_id)%>
         <p><%= book.title %></p>
-        <%# <small><%= meeting.time unless meeting.multi_days? %>
       </div>
     <% end %>
   <% end %>
