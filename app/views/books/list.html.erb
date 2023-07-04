@@ -3,7 +3,7 @@
   <% book = Book.find(notcomp.id) %>
   <p><%= book.title %> By<%= book.author %></p>
   <% notcomp.meetings.each do |meeting|%>
-    <p>Start date : <%= meeting.start_date%></p>
-    <p>Scheduled end date : <%= meeting.end_date%></p>
+    <p>Start date : <%= meeting.start_time%></p>
+    <p>Scheduled end date : <%= meeting.end_time%></p>
   <% end %>
 <% end %>

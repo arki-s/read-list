@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :meetings, only: [:index, :edit, :update, :destroy]
-  resources :records, only: [:destroy]
+  resources :records, only: [:index, :destroy]
 
   get 'list', to: 'books#list', as: 'list'
 
