@@ -6,7 +6,9 @@
     <p>Start date : <%= notcomp.start_time %></p>
     <p>Scheduled end date : <%= notcomp.end_time %></p>
     <%= link_to "", edit_meeting_path(notcomp.id), class:"fa-solid fa-pen p-2",style:"color:#dc3545;" %>
+    <p></p>
   <% end %>
 <% else %>
   <h2>There are no in progress.</h2>
 <% end %>
+<%= link_to "Add progress", new_meeting_path, class:"btn btn-primary" %>
