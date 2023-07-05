@@ -12,6 +12,13 @@ class MeetingsController < ApplicationController
   end
 
   def create
+    @meeting = Meeting.new(meeting_params)
+    @meeting.user_id = current_user.id
+    if @meeting.save
+      redirect_to list_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit

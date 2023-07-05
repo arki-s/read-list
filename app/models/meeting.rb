@@ -1,6 +1,6 @@
 class Meeting < ApplicationRecord
   belongs_to :book
-  has_one :record
+  has_one :record, dependent: :destroy
   belongs_to :user
   validates :start_time, :end_time, presence: true
   default_scope -> { order(:start_time) }
