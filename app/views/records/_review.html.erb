@@ -1,5 +1,5 @@
-<%= simple_form_for[@book, @meeting, record] do |f| %>
-  <%= f.input :raiting %>
-  <%= f.input :review %>
+<%= simple_form_for [@meeting, record] do |f| %>
+  <%= f.input :rating, collection: 1..5, include_blank: false, selected: 3 %>
+  <%= f.input :review, as: :text %>
   <%= f.submit "Add review", class:"btn btn-primary" %>
 <% end %>

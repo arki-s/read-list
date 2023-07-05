@@ -17,6 +17,5 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @meetings = @book.meetings
-    @records = @book.records
   end
 end

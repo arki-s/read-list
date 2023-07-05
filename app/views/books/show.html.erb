@@ -1,6 +1,7 @@
 <% if @book.user_id == current_user.id %>
   <h1><%= @book.title %></h1>
   <h2>By <%= @book.author %></h2>
+  <p></p>
   <% @book.meetings.each do |meeting|%>
     <% if meeting.complete == true && !(meeting.record.nil?) %>
       <p>Start_date : <%= meeting.start_time %></p>
@@ -11,7 +12,8 @@
       <p>Start_date : <%= meeting.start_time %></p>
       <p>End_date : <%= meeting.end_time %></p>
       <h3>Please add your review.</h3>
-      <%= render "records/review", book:@book, meeting:@meeting, record: Record.new %>
+      <% @meeting = meeting  %>
+      <%= render "records/review", meeting: @meeting, record: Record.new %>
     <% end %>
   <% end %>
 <% else %>

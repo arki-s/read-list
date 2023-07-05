@@ -5,9 +5,7 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(params_record)
     @meeting = Meeting.find(params[:meeting_id])
-    @book = Book.find(params[:book_id])
     @record.meeting = @meeting
-    @record.book = @book
     if @record.save
       redirect_to book_path(@meeting.book_id)
     else
@@ -30,6 +28,6 @@ class RecordsController < ApplicationController
   private
 
   def params_record
-    params.require(:record).permit(:book_id, :meeting_id, :rating, :review)
+    params.require(:record).permit(:rating, :review)
   end
 end
