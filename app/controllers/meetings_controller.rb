@@ -14,17 +14,32 @@ class MeetingsController < ApplicationController
   end
 
   def edit
+    @meeting = Meeting.find(params[:id])
+    @book = Book.find(@meeting.book_id)
+    @user = User.find(@meeting.user_id)
   end
 
   def update
+    @meeting = Meeting.find(params[:id])
+    @book = Book.find(@meeting.book_id)
+    @user = User.find(@meeting.user_id)
+    if @meeting.update(meeting_params)
+      redirect_to list_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @meeting = Meeting.find(params[:id])
+    @meeting.destroy
+    redirect_to list_path, status: :see_other
   end
 
   private
 
   def meeting_params
+    params.require(:meeting).permit(:complete, :user_id, :book_id, :start_time, :end_time)
   end
 
 end
