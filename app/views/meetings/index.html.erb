@@ -1,6 +1,6 @@
 <div class="calendar-container">
   <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
-    <%= date %>
+    <%= date.mday %>
     <% meetings.each do |meeting| %>
       <% if meeting.complete == true %>
         <div class="meeting-completed">

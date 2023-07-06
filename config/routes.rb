@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :records, only: [:index, :destroy]
 
   get 'list', to: 'books#list', as: 'list'
+  get 'analytics', to: 'books#analytics', as: 'analytics'
 
 end

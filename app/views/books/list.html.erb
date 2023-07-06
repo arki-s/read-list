@@ -3,8 +3,8 @@
   <% @not_completes.each do |notcomp| %>
     <% book = Book.find(notcomp.book_id) %>
     <p><%= book.title %> By <%= book.author %></p>
-    <p>Start date : <%= notcomp.start_time %></p>
-    <p>Scheduled end date : <%= notcomp.end_time %></p>
+    <p>Start date : <%= notcomp.start_time.strftime("%F") %></p>
+    <p>Scheduled end date : <%= notcomp.end_time.strftime("%F") %></p>
     <%= link_to "", edit_meeting_path(notcomp.id), class:"fa-solid fa-pen p-2",style:"color:#dc3545;" %>
     <%= link_to "", meeting_path(notcomp), class:"fa-solid fa-trash-can", style:"color: #ff68b4;", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <p></p>

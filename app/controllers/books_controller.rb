@@ -18,4 +18,13 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @meetings = @book.meetings
   end
+
+  def analytics
+    @books = current_user.books
+    @meetings = current_user.meetings
+    avetotal = 0
+    @meetings.each { |meeting| avetotal += (meeting.end_time - meeting.start_time) }
+    @book_count = @books.count
+    @average_time_total = ((avetotal / @meetings.count) / 1.day).round(2)
+  end
 end
