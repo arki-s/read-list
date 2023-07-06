@@ -1,9 +1,9 @@
 <% if @user = current_user  %>
   <h1>Edit progress</h1>
   <h2>Book Title : <%= @book.title %></h2>
-  <%= simple_form_for @meeting  do |f| %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
+  <%= simple_form_for @meeting, data: { controller: 'flatpickr' }  do |f| %>
+    <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
     <%= f.input :complete %>
     <%= f.submit 'Submit', class:"btn btn-primary" %>
   <% end %>

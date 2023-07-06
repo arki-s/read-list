@@ -4,9 +4,9 @@
   <p></p>
   <% @book.meetings.each do |meeting|%>
     <% if meeting.complete == true && !(meeting.record.nil?) %>
-      <p>Start_date : <%= meeting.start_time %></p>
-      <p>End_date : <%= meeting.end_time %></p>
-      <p>Rating : <%= meeting.record.rating %></p>
+      <p>Start_date : <%= meeting.start_time.strftime("%F")  %></p>
+      <p>End_date : <%= meeting.end_time.strftime("%F")   %></p>
+      <p>Rating : <%= "⭐️" * meeting.record.rating %></p>
       <p>Review : <%= meeting.record.review %></p>
     <% elsif meeting.complete == true && meeting.record.nil? %>
       <p>Start_date : <%= meeting.start_time %></p>
