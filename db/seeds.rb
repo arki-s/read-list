@@ -17,6 +17,69 @@ user = User.create!(email:"test@test.com", password:"123456")
 puts "create testuser"
 
 time = Date.today
+beginning_start = Date.new(time.year, time.month - 2, rand(1..10))
+beginning_end = beginning_start + rand(4)
+middle_start = Date.new(time.year, time.month - 2, rand(11..20))
+middle_end = middle_start + rand(4)
+ending_start = Date.new(time.year, time.month - 2, rand(21..28))
+ending_end = ending_start + rand(1..2)
+
+
+2.times do
+  book = Book.create!(title: Faker::Music.album, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: beginning_start, end_time: beginning_end, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+
+  book = Book.create!(title: Faker::Creature::Animal.name, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: middle_start, end_time: middle_end, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+
+  book = Book.create!(title: Faker::Restaurant.name, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: ending_start, end_time: ending_end, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+end
+
+beginning_startt = Date.new(time.year, time.month - 3, rand(1..10))
+beginning_endd = beginning_startt + rand(4)
+middle_startt = Date.new(time.year, time.month - 3, rand(11..20))
+middle_endd = middle_startt + rand(4)
+ending_startt = Date.new(time.year, time.month - 3, rand(21..28))
+ending_endd = ending_startt + rand(1..2)
+
+3.times do
+  book = Book.create!(title: Faker::Books::CultureSeries.book, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: beginning_startt, end_time: beginning_endd, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+
+  book = Book.create!(title: Faker::Creature::Animal.name, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: middle_startt, end_time: middle_endd, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+
+  book = Book.create!(title: Faker::Hobby.activity, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: ending_startt, end_time: ending_endd, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+end
+
+beginning_starttt = Date.new(time.year, time.month - 4, rand(1..10))
+beginning_enddd = beginning_starttt + rand(4)
+middle_starttt = Date.new(time.year, time.month - 4, rand(11..20))
+middle_enddd = middle_starttt + rand(4)
+ending_starttt = Date.new(time.year, time.month - 4, rand(21..28))
+ending_enddd = ending_starttt + rand(1..2)
+
+2.times do
+  book = Book.create!(title: Faker::Game.title, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: beginning_starttt, end_time: beginning_enddd, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+
+  book = Book.create!(title: Faker::Movie.title, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: middle_starttt, end_time: middle_enddd, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+
+  book = Book.create!(title: Faker::Restaurant.name, author: Faker::Book.author, user_id:user.id)
+  meeting = Meeting.create!(start_time: ending_starttt, end_time: ending_enddd, complete: true, book_id: book.id, user_id: user.id)
+  Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
+end
 
 book = Book.create!(title: Faker::Book.title, author: Faker::Book.author, user_id:user.id)
 meeting = Meeting.create!(start_time: time + 1, end_time: time + 5, complete: false, book_id: book.id, user_id: user.id)
@@ -71,8 +134,6 @@ Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restau
 book = Book.create!(title: "The notebook", author: "Agota Kristof", user_id:user.id)
 meeting = Meeting.create!(start_time: (time - 50), end_time: (time - 49), complete: true, book_id: book.id, user_id: user.id)
 Record.create!(meeting_id: meeting.id, rating: rand(1..5), review: Faker::Restaurant.review)
-
-
 
 puts "created #{Book.count} books"
 puts "created #{Meeting.count} readings"
