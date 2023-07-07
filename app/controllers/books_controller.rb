@@ -28,13 +28,19 @@ class BooksController < ApplicationController
     @average_time_total = ((avetotal / @meetings.count) / 1.day).round(2)
     @total_reading = @meetings.select { |meeting| meeting.complete == true }.count
 
+    def count_monthly(month)
+      meetings = current_user.meetings
+      meetings.select { |meeting| meeting.end_time.month == month }.count
+    end
+
+    this_month = Date.today.month
     @chart_data = {
-      labels: %w[January February March April May June July],
+      labels: [this_month - 4, this_month - 3, this_month - 2, this_month - 1, this_month],
       datasets: [{
-        label: 'My First dataset',
+        label: 'Number of reading',
         backgroundColor: 'transparent',
         borderColor: '#3B82F6',
-        data: [37, 83, 78, 54, 12, 5, 99]
+        data: [count_monthly(this_month - 4), count_monthly(this_month - 3), count_monthly(this_month - 2), count_monthly(this_month - 1), count_monthly(this_month)]
       }]
     }
 
