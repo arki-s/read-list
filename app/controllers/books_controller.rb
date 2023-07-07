@@ -26,5 +26,26 @@ class BooksController < ApplicationController
     @meetings.each { |meeting| avetotal += (meeting.end_time - meeting.start_time) }
     @book_count = @books.count
     @average_time_total = ((avetotal / @meetings.count) / 1.day).round(2)
+    @total_reading = @meetings.select { |meeting| meeting.complete == true }.count
+
+    @chart_data = {
+      labels: %w[January February March April May June July],
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: 'transparent',
+        borderColor: '#3B82F6',
+        data: [37, 83, 78, 54, 12, 5, 99]
+      }]
+    }
+
+    @chart_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
   end
 end
