@@ -33,9 +33,14 @@ class BooksController < ApplicationController
       meetings.select { |meeting| meeting.end_time.month == month }.count
     end
 
+    def show_month(month)
+      m = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+      m[month - 1]
+    end
+
     this_month = Date.today.month
     @chart_data = {
-      labels: [this_month - 4, this_month - 3, this_month - 2, this_month - 1, this_month],
+      labels: [show_month(this_month - 4), show_month(this_month - 3), show_month(this_month - 2), show_month(this_month - 1), show_month(this_month)],
       datasets: [{
         label: 'Number of reading',
         backgroundColor: 'transparent',
