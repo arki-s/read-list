@@ -1,5 +1,5 @@
 <h1>Your Books</h1>
-<% @books.each do |book| %>
+<% @books.order('LOWER(title)').each do |book| %>
   <%= link_to book.title, book_path(book) %>
   <p>By <%= book.author %></p>
 <% end %>

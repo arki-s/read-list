@@ -32,7 +32,11 @@ class MeetingsController < ApplicationController
     @book = Book.find(@meeting.book_id)
     @user = User.find(@meeting.user_id)
     if @meeting.update(meeting_params)
-      redirect_to list_path
+      if @meeting.complete == true
+        redirect_to book_path(@book)
+      else
+        redirect_to list_path
+      end
     else
       render :edit, status: :unprocessable_entity
     end
