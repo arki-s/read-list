@@ -39,7 +39,7 @@ class BooksController < ApplicationController
       datasets: [{
         label: 'Number of reading',
         backgroundColor: 'transparent',
-        borderColor: '#3B82F6',
+        borderColor: '#df5656',
         data: [count_monthly(this_month - 4), count_monthly(this_month - 3), count_monthly(this_month - 2), count_monthly(this_month - 1), count_monthly(this_month)]
       }]
     }
