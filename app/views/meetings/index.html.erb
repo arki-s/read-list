@@ -1,18 +1,20 @@
-<div class="calendar-container">
-  <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
-    <%= date.mday %>
-    <% meetings.each do |meeting| %>
-      <% if meeting.complete == true %>
-        <div class="meeting-completed">
-          <% book = Book.find(meeting.book_id)%>
-          <p><%= book.title %></p>
-        </div>
-      <% else  %>
-        <div class="meeting">
-          <% book = Book.find(meeting.book_id)%>
-          <p><%= book.title %></p>
-        </div>
+<div class="container-s">
+  <div class="calendar-container">
+    <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
+      <%= date.mday %>
+      <% meetings.each do |meeting| %>
+        <% if meeting.complete == true %>
+          <div class="meeting-completed">
+            <% book = Book.find(meeting.book_id)%>
+            <p><%= book.title %></p>
+          </div>
+        <% else  %>
+          <div class="meeting">
+            <% book = Book.find(meeting.book_id)%>
+            <p><%= book.title %></p>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

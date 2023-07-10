@@ -1,8 +1,10 @@
-<h1>Add Progress</h1>
-<%= simple_form_for @meeting, data: { controller: 'flatpickr' } do |f| %>
-  <%= f.association :book, prompt: 'Choose a book'%>
-  <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
-  <%= f.submit "Add New Progress", class:"btn btn-primary" %>
-<% end %>
-<%= link_to "Back", list_path %>
+<div class="container-s">
+  <h1>Add Progress</h1>
+  <%= simple_form_for @meeting, data: { controller: 'flatpickr' } do |f| %>
+    <%= f.association :book, prompt: 'Choose a book'%>
+    <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+    <%= f.submit "Add New Progress", class:"btn btn-primary" %>
+  <% end %>
+  <%= link_to "Back", list_path %>
+</div>
