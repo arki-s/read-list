@@ -1,22 +1,30 @@
-<% if @book.user_id == current_user.id %>
-  <h1><%= @book.title %></h1>
-  <h2>By <%= @book.author %></h2>
-  <p></p>
-  <% @book.meetings.each do |meeting|%>
-    <% if meeting.complete == true && !(meeting.record.nil?) %>
-      <p>Start_date : <%= meeting.start_time.strftime("%F")  %></p>
-      <p>End_date : <%= meeting.end_time.strftime("%F")   %></p>
-      <p>Rating : <%= "⭐️" * meeting.record.rating %></p>
-      <p>Review : <%= meeting.record.review %></p>
-    <% elsif meeting.complete == true && meeting.record.nil? %>
-      <p>Start_date : <%= meeting.start_time.strftime("%F") %></p>
-      <p>End_date : <%= meeting.end_time.strftime("%F") %></p>
-      <h3>Please add your review.</h3>
-      <% @meeting = meeting  %>
-      <%= render "records/review", meeting: @meeting, record: Record.new %>
+<div class="container-show">
+  <% if @book.user_id == current_user.id %>
+    <div class="text-center">
+      <h1><%= @book.title %></h1>
+      <h2>By <%= @book.author %></h2>
+    </div>
+    <p></p>
+    <% @book.meetings.each do |meeting|%>
+      <% if meeting.complete == true && !(meeting.record.nil?) %>
+        <div class="show-card">
+          <p>Start_date : <%= meeting.start_time.strftime("%F")  %></p>
+          <p>End_date : <%= meeting.end_time.strftime("%F")   %></p>
+          <p>Rating : <%= "⭐️" * meeting.record.rating %></p>
+          <p>Review : <%= meeting.record.review %></p>
+        </div>
+      <% elsif meeting.complete == true && meeting.record.nil? %>
+        <p>Start_date : <%= meeting.start_time.strftime("%F") %></p>
+        <p>End_date : <%= meeting.end_time.strftime("%F") %></p>
+        <h3>Please add your review.</h3>
+        <% @meeting = meeting  %>
+        <%= render "records/review", meeting: @meeting, record: Record.new %>
+      <% end %>
     <% end %>
+  <% else %>
+    <h1>You don't have access.</h1>
   <% end %>
-<% else %>
-  <h1>You don't have access.</h1>
-<% end %>
-<%= link_to "Back", books_path %>
+  <div class="text-center p-2">
+    <%= link_to "Back", books_path %>
+  </div>
+</div>
