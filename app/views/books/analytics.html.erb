@@ -1,9 +1,15 @@
-<h1>Analytics</h1>
-<p>Total Number of Books : <%= @book_count %></p>
-<p>Total Number of Reading : <%= @total_reading %></p>
-<p>Average time of reading : <%= @average_time_total %> days</p>
-<canvas
+<div class="container-s">
+  <h1 class ="text-center">Analytics</h1>
+  <div class="analytics-container">
+    <h3>Total Number of Books : <%= @book_count %></h3>
+    <h3>Total Number of Reading : <%= @total_reading %></h3>
+    <h3>Average time of reading : <%= @average_time_total %> days</h3>
+    <div class="chart-container">
+      <canvas
   data-controller="chart"
   data-chart-data-value="<%= @chart_data.to_json %>"
   data-chart-options-value="<%= @chart_options.to_json %>"
 ></canvas>
+    </div>
+  </div>
+</div>

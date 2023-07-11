@@ -1,0 +1,9 @@
+<div class="container-s">
+  <h1>Add New Book</h1>
+  <%= simple_form_for @book do |f| %>
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.submit "Add New Book", class:"btn btn-primary" %>
+  <% end %>
+  <%= link_to "Back", books_path %>
+</div>

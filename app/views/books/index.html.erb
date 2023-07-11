@@ -1,5 +1,14 @@
-<h1>Your Books</h1>
-<% @books.order('LOWER(title)').each do |book| %>
-  <%= link_to book.title, book_path(book) %>
-  <p>By <%= book.author %></p>
-<% end %>
+<div class="container-s">
+  <h1 class="text-center"><%= pluralize @books.size, "book" %></h1>
+  <div class="book-cards">
+    <% @books.order('LOWER(title)').each do |book| %>
+      <div class="book-card">
+        <h2><%= link_to book.title, book_path(book) %></h2>
+        <p>By <%= book.author %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="add-link-calendar">
+  <%= link_to "", new_book_path, class:"fa-solid fa-circle-plus",style:"font-size:60px" %>
+</div>

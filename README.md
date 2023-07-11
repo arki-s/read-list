@@ -1,39 +1,41 @@
-# README
+# 📚 Read list
 
-webpack
-PostgreSQL
-Ruby on Rails
-Javascript
-Stimulus
-HTML
-SCSS
-Bootstrap
+A simple web app for bookworm.
+This app can manage your reading history.
 
+Features
+- in progress list
+- book list
+- calendar
+- analytics
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+### Setup
 
-Things you may want to cover:
+Install gems
+```
+bundle install
+```
+Install JS packages
+```
+yarn install
+````
 
-* Ruby version
-3.1.2
-
-* System dependencies
-
-* Configuration
-
-* Database creation
+### DB Setup
+```
+rails db:create
 rails db:migrate
 rails db:seed
+```
 
-* Database initialization
-
-* How to run the test suite
+### Run a server
+```
 rails s
 yarn build --watch
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Built With
+- [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
+- [Stimulus JS](https://stimulus.hotwired.dev/) - Front-end JS
+- [PostgreSQL](https://www.postgresql.org/) - Database
+- [Bootstrap](https://getbootstrap.com/) — Styling
