@@ -32,8 +32,6 @@
   }
 }
 
-
-
 .meeting:hover {
   background: #1BCB7F;
   color: white;
@@ -41,6 +39,22 @@
 
 .calendar-heading {
   font-size: 36px;
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+.calendar-container {
+  position: relative;
+}
+
+.add-link-calendar {
+  position: fixed;
+  top: 80%;
+  right: 10%;
+
 
   a {
     text-decoration: none;
