@@ -73,8 +73,8 @@
 
   img {
     width: 40vw;
-    height: auto;
-    box-shadow: 2px 2px 2px gray;
+    height: 38vh;
+    box-shadow: 3px 3px 3px gray;
   }
 }
 
@@ -89,12 +89,28 @@
   .contents {
     grid-template-columns: 1fr;
   }
+
+  .content-feature {
+    img {
+      width: 70vw;
+      height: auto;
+      box-shadow: 3px 3px 3px gray;
+    }
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .contents {
     grid-template-columns: 1fr;
+  }
+
+  .content-feature {
+    img {
+      width: 70vw;
+      height: auto;
+      box-shadow: 3px 3px 3px gray;
+    }
   }
 }
 
@@ -103,12 +119,28 @@
   .contents {
     grid-template-columns: 1fr 1fr;
   }
+
+  .content-feature {
+    img {
+      width: 40vw;
+      height: 38vh;
+      box-shadow: 3px 3px 3px gray;
+    }
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .contents {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .content-feature {
+    img {
+      width: 40vw;
+      height: 40vh;
+      box-shadow: 3px 3px 3px gray;
+    }
   }
 }
 
