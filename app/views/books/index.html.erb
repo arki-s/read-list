@@ -3,6 +3,9 @@
   <div class="book-cards">
     <% @books.order('LOWER(title)').each do |book| %>
       <div class="book-card">
+        <%= link_to toggle_favorite_book_path(book) do %>
+          <i class="<%= @user.favorited?(book) ? "fa-solid fa-heart" : "fa-regular fa-heart" %>" style="color: #df5656;"></i>
+        <% end %>
         <h2><%= link_to book.title, book_path(book) %></h2>
         <p>By <%= book.author %></p>
       </div>

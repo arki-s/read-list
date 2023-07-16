@@ -11,7 +11,15 @@ class BooksController < ApplicationController
   end
 
   def index
+    @user = current_user
     @books = current_user.books
+  end
+
+  def toggle_favorite
+    @book = Book.find_by(id: params[:id])
+    @user = current_user
+    @user.favorited?(@book) ? @user.unfavorite(@book) : @user.favorite(@book)
+    redirect_to books_path
   end
 
   def new
