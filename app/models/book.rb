@@ -3,4 +3,5 @@ class Book < ApplicationRecord
   has_many :meetings, dependent: :destroy
   validates :title, presence: true, uniqueness: true
   validates :author, presence: true
+  acts_as_favoritable
 end
