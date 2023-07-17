@@ -1,8 +1,7 @@
 <div class="container-s">
-  <h1 class="text-center"><%= pluralize @books.size, "book" %></h1>
-  <h3 class="link"><%= link_to "Favorite", favorite_path %></h3>
+  <h1 class="text-center">Your Favorite Books</h1>
   <div class="book-cards">
-    <% @books.order('LOWER(title)').each do |book| %>
+    <% @books.each do |book| %>
       <div class="book-card">
         <div class="position-absolute">
           <%= link_to toggle_favorite_book_path(book) do %>
@@ -14,7 +13,7 @@
       </div>
     <% end %>
   </div>
-</div>
-<div class="add-link-calendar">
-  <%= link_to "", new_book_path, class:"fa-solid fa-circle-plus",style:"font-size:60px" %>
+  <div class="text-center p-2">
+    <%= link_to "Back", books_path %>
+  </div>
 </div>

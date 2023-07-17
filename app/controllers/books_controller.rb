@@ -82,6 +82,11 @@ class BooksController < ApplicationController
     }
   end
 
+  def favorite
+    @user = current_user
+    @books = @user.all_favorited
+  end
+
   private
 
   def book_params
