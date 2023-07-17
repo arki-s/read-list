@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
   get 'list', to: 'books#list', as: 'list'
   get 'analytics', to: 'books#analytics', as: 'analytics'
+  get 'favorite', to: 'books#favorite', as: 'favorite'
 
 end
