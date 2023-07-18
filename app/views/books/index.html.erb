@@ -1,12 +1,12 @@
 <div class="container-s">
   <h1 class="text-center"><%= pluralize @books.size, "book" %></h1>
   <h3 class="link"><%= link_to "Favorite", favorite_path %></h3>
-  <div class="book-cards">
+  <div class="book-cards" >
     <% @books.order('LOWER(title)').each do |book| %>
-      <div class="book-card">
+      <div class="book-card" data-controller="insert-in-list">
         <div class="position-absolute">
-          <%= link_to toggle_favorite_book_path(book) do %>
-            <i class="<%= @user.favorited?(book) ? "fa-solid fa-heart" : "fa-regular fa-heart" %>" style="color: #df5656;"></i>
+          <%= link_to toggle_favorite_book_path(book), remote: true do %>
+            <i class="<%= @user.favorited?(book) ? "fa-solid fa-heart" : "fa-regular fa-heart" %>" style="color: #df5656;" data-insert-in-list-target="items" data-action="click->insert-in-list#send"></i>
           <% end %>
         </div>
         <h2 class="p-2"><%= link_to book.title, book_path(book) %></h2>
