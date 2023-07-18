@@ -10,5 +10,5 @@ application.register("flatpickr", FlatpickrController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import Chart from 'stimulus-chartjs'
-application.register('chart', Chart)
+import InsertInListController from "./insert_in_list_controller"
+application.register("insert-in-list", InsertInListController)
